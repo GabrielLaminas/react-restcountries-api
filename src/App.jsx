@@ -1,13 +1,21 @@
 import React from 'react'
 import GlobalStyle from './GlobalStyle';
 
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Home from './Pages/Home';
+
 const App = () => {
   return (
     <div>
-      <GlobalStyle />
-      <h1>App</h1>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+      
     </div>
   )
 }
 
-export default App
+export default App;
