@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeContext } from '../Context/ThemeContext';
 
-import { Headerr, HeaderContainer } from './header.style';
+import { Headerr, HeaderContainer } from './headerStyle';
 import 'boxicons';
 
 const Header = () => {

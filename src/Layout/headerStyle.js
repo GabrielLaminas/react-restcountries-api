@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Headerr = styled.header`
-  background-color: ${({theme}) => theme.backgroundColor};
+  background-color: ${({theme}) => theme.backgroundElements};
   transition: .2s;
 `;
 
