@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Headerr = styled.header`
   background-color: ${({theme}) => theme.backgroundElements};
-  transition: .2s;
 `;
 
 export const HeaderContainer = styled.div`
@@ -13,7 +12,6 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   color: ${({theme}) => theme.color};
-  transition: .2s;
 
   & > * {
     color: ${({theme}) => theme.color};
