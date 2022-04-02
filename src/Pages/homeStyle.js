@@ -14,7 +14,7 @@ export const MainContainer = styled.div`
 `;
 
 export const Form = styled.form`
-  max-width: 400px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, .07);
 `;
 
 export const FormLabel = styled.label`

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Headerr = styled.header`
   background-color: ${({theme}) => theme.backgroundElements};
+  border-bottom: 2px solid rgba(0, 0, 0, .06);
 `;
 
 export const HeaderContainer = styled.div`
@@ -34,6 +35,8 @@ export const HeaderContainer = styled.div`
     cursor: pointer;
 
     span{
+      font-weight: 600;
+      
       @media screen and (max-width: 480px) {
         font-size: 0.875rem;
       }
