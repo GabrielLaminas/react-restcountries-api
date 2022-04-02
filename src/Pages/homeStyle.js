@@ -18,7 +18,6 @@ export const Form = styled.form`
 `;
 
 export const FormLabel = styled.label`
-  width: 400px;
   padding: 0 24px;
   display: flex;
   align-items: center;
@@ -27,14 +26,15 @@ export const FormLabel = styled.label`
   border-radius: 4px;
 
   & > * {
-    fill: ${({theme}) => theme.color}    
+    fill: ${({theme}) => theme.color};
+    background-color: ${({theme}) => theme.backgroundElements};
+    color: ${({theme}) => theme.color};
   }
   
   input[type="search"]{
-    width: 100%;
+    width: 400px;
     padding: 16px 0;
     font-size: 0.875rem;
-    border: 2px solid red;
     border: none;
     background-color: ${({theme}) => theme.backgroundElements};
     color: ${({theme}) => theme.color};
@@ -46,5 +46,19 @@ export const FormLabel = styled.label`
     &::placeholder{
       color: ${({theme}) => theme.inputColor};
     }
+  }
+
+  select{
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 0.875rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+
+    &:focus{
+      outline: none;
+    }
+
   }
 `;
