@@ -2,7 +2,7 @@ import React from "react";
 
 export const ThemeContext = React.createContext();
 
-const ligth = {
+const light = {
   backgroundColor: 'hsl(0, 0%, 98%)',
   backgroundElements: 'hsl(0, 0%, 100%)',
   color: 'hsl(200, 15%, 8%)',
@@ -19,7 +19,7 @@ const dark = {
 export const Theme = ({children}) => {
   const [isModeActive, setIsModeActive] = React.useState(false);
   
-  const theme = isModeActive ? dark : ligth
+  const theme = isModeActive ? dark : light
 
   return (
     <ThemeContext.Provider 

@@ -6,12 +6,15 @@ import {
   Main, 
   MainContainer, 
   Form,
-  FormLabel 
+  FormLabel,
+  MainGrid 
 } from './homeStyle';
+import useFetch from '../Hook/useFetch';
 
 const Home = () => {
   const { theme } = React.useContext(ThemeContext);
   const [region, setRegion] = React.useState('');
+  const { data } = useFetch('https://restcountries.com/v3.1/all');
 
   return (
     <Main theme={theme}>
@@ -51,6 +54,26 @@ const Home = () => {
           </FormLabel>
         </Form>
       </MainContainer>
+
+      <MainGrid theme={theme}>
+        {data && data.map(({flags, name, population, region, capital}, index) => (
+          <article key={index}>
+            <div>
+              <img
+                height="160" 
+                src={flags.png}
+                alt={flags.png}
+              />
+            </div>
+            <div>
+              <h2>{name.common}</h2>
+              <p>Population: <span>{population}</span></p>
+              <p>Region: <span>{region}</span></p>
+              <p>Capital: <span>{capital}</span></p>
+            </div>
+          </article>
+        ))}
+      </MainGrid>
     </Main>
   )
 }

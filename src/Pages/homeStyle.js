@@ -4,12 +4,14 @@ export const Main = styled.main`
   background-color: ${({theme}) => theme.backgroundColor};
 `;
 
-export const MainContainer = styled.div`
+export const MainContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between; 
   align-items: center;
 `;
 
@@ -30,7 +32,7 @@ export const FormLabel = styled.label`
     background-color: ${({theme}) => theme.backgroundElements};
     color: ${({theme}) => theme.color};
   }
-  
+
   input[type="search"]{
     width: 400px;
     padding: 16px 0;
@@ -60,5 +62,62 @@ export const FormLabel = styled.label`
       outline: none;
     }
 
+  }
+`;
+
+export const MainGrid = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, auto) 
+  );
+  grid-auto-rows: auto;
+  cursor: pointer;
+  & > * {
+    background-color: ${({theme}) => theme.backgroundElements};
+    color: ${({theme}) => theme.color};
+  }
+
+  article{
+    border-radius: 4px;
+    overflow: hidden;
+
+    div:first-child{
+      height: 160px;
+      overflow: hidden;
+
+      img{
+        width: 100%;
+        min-height: 160px;
+      }
+    }
+
+    div:last-child{
+      padding: 16px;
+    }
+
+    h2{
+      margin-bottom: 16px;
+      font-size: 1.125rem;
+    }
+
+    p{
+      margin: 4px 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    span{
+      font-weight: 300;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    justify-content: center;
+    grid-template-columns: 300px;
   }
 `;
