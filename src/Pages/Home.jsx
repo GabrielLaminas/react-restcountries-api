@@ -3,7 +3,6 @@ import { ThemeContext } from '../Context/ThemeContext';
 import 'boxicons';
 
 import { 
-  Main, 
   MainContainer, 
   Form,
   FormLabel,
@@ -16,10 +15,15 @@ const Home = () => {
   const [region, setRegion] = React.useState('');
   const { data } = useFetch('https://restcountries.com/v3.1/all');
 
+  React.useEffect(() => {
+    document.body.style.backgroundColor 
+      = theme.backgroundColor;
+  }, [theme]);
+
   return (
-    <Main theme={theme}>
+    <main>
       <MainContainer>
-        <Form>
+        <Form className='formSearch'>
           <FormLabel htmlFor='search' theme={theme}>
             <box-icon 
               name='search-alt-2'
@@ -60,7 +64,6 @@ const Home = () => {
           <article key={index}>
             <div>
               <img
-                height="160" 
                 src={flags.png}
                 alt={flags.png}
               />
@@ -74,7 +77,7 @@ const Home = () => {
           </article>
         ))}
       </MainGrid>
-    </Main>
+    </main>
   )
 }
 

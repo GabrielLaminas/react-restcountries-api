@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const Main = styled.main`
-  background-color: ${({theme}) => theme.backgroundColor};
-`;
-
 export const MainContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;
@@ -13,6 +9,14 @@ export const MainContainer = styled.section`
   gap: 32px;
   justify-content: space-between; 
   align-items: center;
+
+  .formSearch{
+    width: 440px;
+
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+  }
 `;
 
 export const Form = styled.form`
@@ -34,7 +38,7 @@ export const FormLabel = styled.label`
   }
 
   input[type="search"]{
-    width: 400px;
+    width: 100%;
     padding: 16px 0;
     font-size: 0.875rem;
     border: none;
@@ -47,6 +51,10 @@ export const FormLabel = styled.label`
 
     &::placeholder{
       color: ${({theme}) => theme.inputColor};
+    }
+
+    @media screen and (max-width: 560px) {
+       max-width: 100%;
     }
   }
 
@@ -77,6 +85,7 @@ export const MainGrid = styled.section`
   );
   grid-auto-rows: auto;
   cursor: pointer;
+
   & > * {
     background-color: ${({theme}) => theme.backgroundElements};
     color: ${({theme}) => theme.color};
@@ -85,14 +94,16 @@ export const MainGrid = styled.section`
   article{
     border-radius: 4px;
     overflow: hidden;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, .07);
 
     div:first-child{
       height: 160px;
       overflow: hidden;
-
+      
       img{
         width: 100%;
-        min-height: 160px;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -113,6 +124,11 @@ export const MainGrid = styled.section`
 
     span{
       font-weight: 300;
+    }
+
+    &:hover{
+      transition: .2s ease;
+      transform: scale(1.15, 1.15);
     }
   }
 
