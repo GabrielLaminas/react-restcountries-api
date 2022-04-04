@@ -2,18 +2,20 @@ import React from 'react';
 import { ThemeContext } from '../Context/ThemeContext';
 import 'boxicons';
 
+import useFetch from '../Hook/useFetch';
+import Loading from '../Helpers/Loading';
+
 import { 
   MainContainer, 
   Form,
   FormLabel,
   MainGrid 
 } from './homeStyle';
-import useFetch from '../Hook/useFetch';
 
 const Home = () => {
   const { theme } = React.useContext(ThemeContext);
   const [region, setRegion] = React.useState('');
-  const { data } = useFetch('https://restcountries.com/v3.1/all');
+  const { data, loading } = useFetch('https://restcountries.com/v3.1/all');
 
   React.useEffect(() => {
     document.body.style.backgroundColor 
@@ -59,6 +61,7 @@ const Home = () => {
         </Form>
       </MainContainer>
 
+      {loading && <Loading />}
       <MainGrid theme={theme}>
         {data && data.map(({flags, name, population, region, capital}, index) => (
           <article key={index}>
