@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ThemeContext } from '../Context/ThemeContext';
 import 'boxicons';
 
@@ -64,7 +65,7 @@ const Home = () => {
       {loading && <Loading />}
       <MainGrid theme={theme}>
         {data && data.map(({flags, name, population, region, capital}, index) => (
-          <article key={index}>
+          <Link to={`detail/${name.common}`} key={index}>
             <div>
               <img
                 src={flags.png}
@@ -77,7 +78,7 @@ const Home = () => {
               <p>Region: <span>{region}</span></p>
               <p>Capital: <span>{capital}</span></p>
             </div>
-          </article>
+          </Link>
         ))}
       </MainGrid>
     </main>

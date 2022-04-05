@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
     height: auto;
     display: block;
   }
+
+  a{
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;

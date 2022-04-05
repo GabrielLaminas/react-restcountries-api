@@ -84,18 +84,18 @@ export const MainGrid = styled.section`
     minmax(200px, auto) 
   );
   grid-auto-rows: auto;
-  cursor: pointer;
 
   & > * {
     background-color: ${({theme}) => theme.backgroundElements};
     color: ${({theme}) => theme.color};
   }
 
-  article{
+  a{
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, .07);
-
+    cursor: pointer;
+    
     div:first-child{
       height: 160px;
       overflow: hidden;
