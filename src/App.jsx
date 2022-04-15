@@ -10,16 +10,16 @@ import Details from './Pages/Details';
 
 const App = () => {
   return (
-    <Theme>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Theme>
         <GlobalStyle />
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='detail/:name' element={<Details />} />
         </Routes>
-      </BrowserRouter>
-    </Theme>
+      </Theme>
+    </BrowserRouter>
   )
 }
 

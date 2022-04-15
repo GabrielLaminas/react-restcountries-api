@@ -22,6 +22,7 @@ const Home = () => {
     document.body.style.backgroundColor 
       = theme.backgroundColor;
   }, [theme]);
+  
 
   return (
     <main>
@@ -65,11 +66,11 @@ const Home = () => {
       {loading && <Loading />}
       <MainGrid theme={theme}>
         {data && data.map(({flags, name, population, region, capital}, index) => (
-          <Link to={`detail/${name.common}`} key={index}>
+          <Link to={`/detail/${name.common}`} key={index}>
             <div>
               <img
                 src={flags.png}
-                alt={flags.png}
+                alt={name.common}
               />
             </div>
             <div>
