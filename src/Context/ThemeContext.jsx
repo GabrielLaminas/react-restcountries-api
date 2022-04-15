@@ -21,6 +21,11 @@ export const Theme = ({children}) => {
   
   const theme = isModeActive ? dark : light
 
+  React.useEffect(() => {
+    document.body.style.backgroundColor 
+      = theme.backgroundColor;
+  }, [theme]);
+
   return (
     <ThemeContext.Provider 
       value={{

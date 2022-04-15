@@ -18,12 +18,6 @@ const Home = () => {
   const [region, setRegion] = React.useState('');
   const { data, loading } = useFetch('https://restcountries.com/v3.1/all');
 
-  React.useEffect(() => {
-    document.body.style.backgroundColor 
-      = theme.backgroundColor;
-  }, [theme]);
-  
-
   return (
     <main>
       <MainContainer>
@@ -70,7 +64,7 @@ const Home = () => {
             <div>
               <img
                 src={flags.png}
-                alt={name.common}
+                alt={name.common} 
               />
             </div>
             <div>
