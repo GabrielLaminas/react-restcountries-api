@@ -84,13 +84,14 @@ export const MainGrid = styled.section`
     minmax(200px, auto) 
   );
   grid-auto-rows: auto;
-
+  
   & > * {
     background-color: ${({theme}) => theme.backgroundElements};
     color: ${({theme}) => theme.color};
   }
 
   a{
+    transition: transform .2s ease;
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, .07);
@@ -127,7 +128,6 @@ export const MainGrid = styled.section`
     }
 
     &:hover{
-      transition: .2s ease;
       transform: scale(1.15, 1.15);
     }
   }

@@ -17,9 +17,9 @@ const Details = () => {
   const name = params.name.toLowerCase();
   const { theme } = React.useContext(ThemeContext);
   const { data, loading } = useFetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
-
+  
   if(loading) return <Loading />
-  console.log(data)
+  
   return (
     <SectionContainer theme={theme}>
       <Link to="/">
@@ -29,24 +29,45 @@ const Details = () => {
         </div>
       </Link>
 
-      {data && data.map((detail) => (
+      {data.length > 0 && data.map((detail) => (
         <ArticleGrid key={detail.name.common}>
-          <div>
+          <div className='grid_containerImage'>
             <img 
-              src={detail.flags.png}
+              src={detail.flags.svg}
               alt={`flag of ${detail.name.common}`}
             />
           </div>
           
-          <div>
+          <div className='grid_gridInfo'>
             <h2>{detail.name.common}</h2>
-            <p>Official name: <span>{detail.name.official}</span></p>
-            <p>Population: <span>{detail.population}</span></p>
-            <p>Region: <span>{detail.region}</span></p>
-            <p>Subregion: <span>{detail.subregion}</span></p>
-            <p>Capital: <span>{detail.capital[0]}</span></p>
+            <div className='grid_gridInfoLeft'>
+              <p>Official name: <span>{detail.name.official}</span></p>
+              <p>Population: <span>{detail.population}</span></p>
+              <p>Region: <span>{detail.region}</span></p>
+              <p>Subregion: <span>{detail.subregion}</span></p>
+              <p>Capital: <span>{detail.capital[0]}</span></p>
+            </div>
 
-            <p>Top Level Domain: <span>{detail.tld}</span></p>
+            <div className='grid_gridInfoRight'>
+              <p>Top Level Domain: <span>{detail.tld}</span></p>
+              <p>Currencies: {" "}
+                {Object.values(detail.currencies)
+                  .map(({name}) => <span key={name}>{name}</span>)}
+              </p>
+              <p>Languages: {" "}
+                {Object.values(detail.languages).map((lan, i) => (
+                  <span key={i}>{lan}</span>
+                ))}
+              </p>
+            </div>
+
+            <div className='grid_gridInfoFooter'>
+              <p>Border Countries: {" "}
+                {detail.borders.map((border) => (
+                  <span>{border + " "}</span>
+                ))}
+              </p>
+            </div>
           </div>
         </ArticleGrid>
       ))}
@@ -55,26 +76,3 @@ const Details = () => {
 }
 
 export default Details;
-
-
-/**<article>
-        {data && data.map((detail) => (
-          <article key={detail.name.common}>
-            <div>
-              <img 
-                src={detail.flags.png}
-                alt={`flag of ${detail.name.common}`}
-              />
-            </div>
-            
-            <div>
-              <h2>{detail.name.common}</h2>
-              <p>Official name: <span>{detail.name.official}</span></p>
-              <p>Population: <span>{detail.population}</span></p>
-              <p>Region: <span>{detail.region}</span></p>
-              <p>Subregion: <span>{detail.subregion}</span></p>
-              <p>Capital: <span>{detail.capital[0]}</span></p>
-            </div>tld
-          </article>
-        ))}
-      </article> */

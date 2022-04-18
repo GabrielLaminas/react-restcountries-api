@@ -59,7 +59,7 @@ const Home = () => {
 
       {loading && <Loading />}
       <MainGrid theme={theme}>
-        {data && data.map(({flags, name, population, region, capital}, index) => (
+        {data.length > 0 && data.map(({flags, name, population, region, capital}, index) => (
           <Link to={`/detail/${name.common}`} key={index}>
             <div>
               <img

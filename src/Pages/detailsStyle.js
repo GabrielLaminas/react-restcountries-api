@@ -4,7 +4,6 @@ export const SectionContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  //border: 2px solid red;
 
   & > * {
     fill: ${({theme}) => theme.color};
@@ -32,12 +31,58 @@ export const ArticleGrid = styled.article`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 100px;
-  //border: 2px solid red;
+  gap: 80px;
   background-color: transparent;
 
-  img{
+  .grid_containerImage{
     width: 100%;
     height: 100%;
+  }
+
+  .grid_gridInfo{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 60px;
+
+    h2{
+      grid-column: span 2;
+    }
+
+    p{
+      margin: 6px 0;
+      font-weight: 600;
+    }
+
+    span{
+      font-weight: 300;
+      font-size: 0.875rem;
+    }
+
+    @media screen and (max-width: 560px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      h2{
+        grid-column: span 1;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+
+    .grid_containerImage{
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    gap: 40px;
+
+    .grid_containerImage{
+      width: 100%;
+    }
   }
 `;
