@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const rotate = keyframes`
   to{
@@ -23,8 +23,8 @@ const Circle = styled.div`
   height: 50px;
   border-radius: 50%;
   background-color: transparent;
-  border: 4px solid hsl(207, 26%, 17%);
-  border-top: 4px solid hsl(0, 0%, 100%);
+  border: 4px solid hsl(207, 34%, 17%);
+  border-top: 4px solid hsl(0, 0%, 96%);
   animation: ${rotate} 1s linear forwards infinite;
 `;
 

@@ -28,7 +28,7 @@ const Details = () => {
         .then(json => json)
       });
     }
-    getBorder(borders)
+    //getBorder(borders)
   }, [data]);
   
   if(loading) return <Loading />
