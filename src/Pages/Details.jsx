@@ -18,11 +18,24 @@ const Details = () => {
   const { theme } = React.useContext(ThemeContext);
   const { data, loading } = useFetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
   
+  React.useEffect(() => {
+    const borders = data.map(({borders}) => borders)
+  
+    function getBorder(border){
+      border.map(e => {
+        fetch(`https://restcountries.com/v3.1/alpha?codes=${e}`)
+        .then(response => response.json())
+        .then(json => json)
+      });
+    }
+    getBorder(borders)
+  }, [data]);
+  
   if(loading) return <Loading />
   
   return (
     <SectionContainer theme={theme}>
-      <Link to="/">
+      <Link to="/" className='back_tohome'>
         <div>
           <box-icon name='arrow-back' size='sm' />
           <span>Back</span>
@@ -30,7 +43,7 @@ const Details = () => {
       </Link>
 
       {data.length > 0 && data.map((detail) => (
-        <ArticleGrid key={detail.name.common}>
+        <ArticleGrid key={detail.name.common} theme={theme}>
           <div className='grid_containerImage'>
             <img 
               src={detail.flags.svg}
@@ -63,9 +76,19 @@ const Details = () => {
 
             <div className='grid_gridInfoFooter'>
               <p>Border Countries: {" "}
-                {detail.borders.map((border) => (
-                  <span>{border + " "}</span>
-                ))}
+                {detail.borders 
+                  ? detail.borders.map((border, id) => (
+                    <Link
+                      className='link_country' 
+                      key={id}
+                      //onLoad={handleOnLoad(border)}
+                      to={`/detail/${detail.name.common}`}
+                    >
+                      {border + " "}
+                    </Link>
+                    ))
+                  : <span>Does not have</span>
+                }
               </p>
             </div>
           </div>

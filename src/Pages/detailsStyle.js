@@ -11,7 +11,7 @@ export const SectionContainer = styled.section`
     color: ${({theme}) => theme.color};
   }
 
-  a{
+  .back_tohome{
     margin-bottom: 60px;
     padding: 6px 28px;
     display: inline-block;
@@ -57,12 +57,27 @@ export const ArticleGrid = styled.article`
       font-weight: 300;
       font-size: 0.875rem;
     }
+    
+    .grid_gridInfoFooter{
+      grid-column: span 2;
+      
+      .link_country{
+        margin: 0 4px;
+        padding: 4px 24px;
+        background-color: ${({theme}) => theme.backgroundElements};
+        color: ${({theme}) => theme.color};
+        font-size: 0.875rem;
+        font-weight: 300;
+        border-radius: 4px;
+        box-shadow: 0px 2px 12px rgba(0, 0, 0, .2);
+      }
+    }
 
     @media screen and (max-width: 560px) {
       grid-template-columns: 1fr;
       gap: 20px;
 
-      h2{
+      h2, .grid_gridInfoFooter{
         grid-column: span 1;
       }
     }
