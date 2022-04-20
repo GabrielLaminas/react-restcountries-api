@@ -57,20 +57,39 @@ const Details = () => {
               <p>Official name: <span>{detail.name.official}</span></p>
               <p>Population: <span>{detail.population}</span></p>
               <p>Region: <span>{detail.region}</span></p>
-              <p>Subregion: <span>{detail.subregion}</span></p>
-              <p>Capital: <span>{detail.capital[0]}</span></p>
+              <p>Subregion: 
+                {detail.subregion
+                  ? <span> {detail.subregion}</span>
+                  : <span> Does not have</span>
+                }
+              </p>
+              <p>Capital: 
+                {detail.capital 
+                  ? <span> {detail.capital[0]}</span>
+                  : <span> Does not have</span>
+                }
+              </p>
             </div>
 
             <div className='grid_gridInfoRight'>
               <p>Top Level Domain: <span>{detail.tld}</span></p>
               <p>Currencies: {" "}
-                {Object.values(detail.currencies)
-                  .map(({name}) => <span key={name}>{name}</span>)}
+                {detail.currencies ? (
+                  Object.values(detail.currencies)
+                  .map(({name}) => (
+                    <span key={name}>
+                      {name}
+                    </span>
+                  ))
+                ) : <span>Does not have</span>}
               </p>
               <p>Languages: {" "}
-                {Object.values(detail.languages).map((lan, i) => (
+                {detail.languages ? (
+                  Object.values(detail.languages)
+                  .map((lan, i) => (
                   <span key={i}>{lan}</span>
-                ))}
+                  ))
+                ) : <span>Does not have</span>}
               </p>
             </div>
 
