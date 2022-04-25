@@ -129,6 +129,9 @@ export const MainGrid = styled.section`
 
     &:hover{
       transform: scale(1.15, 1.15);
+      @media screen and (max-width: 560px) {
+        transform: scale(1.11, 1.11);
+      }
     }
   }
 
