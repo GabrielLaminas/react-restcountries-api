@@ -17,18 +17,21 @@ const Details = () => {
   const name = params.name.toLowerCase();
   const { theme } = React.useContext(ThemeContext);
   const { data, loading } = useFetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`);
-  
+  const [borderCountry, setBorderCountry] = React.useState([]);
+
   React.useEffect(() => {
     const borders = data.map(({borders}) => borders)
-  
-    function getBorder(border){
-      border.map(e => {
-        fetch(`https://restcountries.com/v3.1/alpha?codes=${e}`)
-        .then(response => response.json())
-        .then(json => json)
-      });
+
+    if(borders[0] !== undefined){
+      function getBorder(border){
+        border.map(e => {
+          fetch(`https://restcountries.com/v3.1/alpha?codes=${e}`)
+          .then(response => response.json())
+          .then(json => setBorderCountry(json))
+        });
+      }
+      getBorder(borders);
     }
-    //getBorder(borders)
   }, [data]);
   
   if(loading) return <Loading />
@@ -53,8 +56,9 @@ const Details = () => {
           
           <div className='grid_gridInfo'>
             <h2>{detail.name.common}</h2>
+
             <div className='grid_gridInfoLeft'>
-              <p>Official name: <span>{detail.name.official}</span></p>
+              <p>Official: <span>{detail.name.official}</span></p>
               <p>Population: <span>{detail.population}</span></p>
               <p>Region: <span>{detail.region}</span></p>
               <p>Subregion: 
@@ -95,19 +99,17 @@ const Details = () => {
 
             <div className='grid_gridInfoFooter'>
               <p>Border Countries: {" "}
-                {detail.borders 
-                  ? detail.borders.map((border, id) => (
+                {borderCountry.length > 0 
+                ? borderCountry.map(({name}, i) => (
                     <Link
                       className='link_country' 
-                      key={id}
-                      //onLoad={handleOnLoad(border)}
-                      to={`/detail/${detail.name.common}`}
+                      key={i}
+                      to={`/detail/${name.common}`}
                     >
-                      {border + " "}
+                      {name.common + " "}
                     </Link>
-                    ))
-                  : <span>Does not have</span>
-                }
+                  ))
+                : <span>Does not have</span>}
               </p>
             </div>
           </div>

@@ -42,7 +42,7 @@ export const ArticleGrid = styled.article`
   .grid_gridInfo{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px 60px;
+    gap: 30px 10px;
 
     h2{
       grid-column: span 2;
@@ -62,8 +62,9 @@ export const ArticleGrid = styled.article`
       grid-column: span 2;
       
       .link_country{
-        margin: 0 4px;
+        margin: 6px 4px;
         padding: 4px 24px;
+        display: inline-block;
         background-color: ${({theme}) => theme.backgroundElements};
         color: ${({theme}) => theme.color};
         font-size: 0.875rem;
