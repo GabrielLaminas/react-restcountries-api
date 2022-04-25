@@ -42,7 +42,7 @@ export const ArticleGrid = styled.article`
   .grid_gridInfo{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px 10px;
+    gap: 30px 40px;
 
     h2{
       grid-column: span 2;
@@ -60,7 +60,15 @@ export const ArticleGrid = styled.article`
     
     .grid_gridInfoFooter{
       grid-column: span 2;
-      
+
+      p{
+        display: inline-block;
+
+        @media screen and (max-width: 560px) {
+          display: block;
+        }
+      }
+
       .link_country{
         margin: 6px 4px;
         padding: 4px 24px;

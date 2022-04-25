@@ -7,6 +7,18 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body::-webkit-scrollbar{
+    width: 10px;
+    background-color: hsl(209, 23%, 22%);
+    border-radius: 10px;
+    
+  }
+
+  body::-webkit-scrollbar-thumb{
+    background-color: rgba(247, 255, 251, .12);
+    border-radius: 10px;
+  }
+
   body{
     font-family: 'Nunito Sans', sans-serif;
   }

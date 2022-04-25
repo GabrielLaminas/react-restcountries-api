@@ -98,8 +98,8 @@ const Details = () => {
             </div>
 
             <div className='grid_gridInfoFooter'>
-              <p>Border Countries: {" "}
-                {borderCountry.length > 0 
+              <p>Border Countries: {" "}</p>
+              {borderCountry.length > 0 
                 ? borderCountry.map(({name}, i) => (
                     <Link
                       className='link_country' 
@@ -109,8 +109,8 @@ const Details = () => {
                       {name.common + " "}
                     </Link>
                   ))
-                : <span>Does not have</span>}
-              </p>
+                : <span>Does not have</span>
+              }
             </div>
           </div>
         </ArticleGrid>
