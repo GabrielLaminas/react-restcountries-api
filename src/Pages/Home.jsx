@@ -6,11 +6,14 @@ import 'boxicons';
 import useFetch from '../Hook/useFetch';
 import Loading from '../Helpers/Loading';
 
+import Error404 from '../Assets/404Error.svg?component';
+
 import { 
   MainContainer, 
   Form,
   FormLabel,
-  MainGrid 
+  MainGrid, 
+  ContainerSvg 
 } from './homeStyle';
 
 const Home = () => {
@@ -21,7 +24,7 @@ const Home = () => {
   const urlAllCountries = 'https://restcountries.com/v3.1/all';
   const [url, setUrl] = React.useState(urlAllCountries);
 
-  const { data, loading } = useFetch(url);
+  const { data, loading, error } = useFetch(url);
 
   const filterRegion = React.useCallback((region) => {
     const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
@@ -43,7 +46,7 @@ const Home = () => {
       setRegion('');
     }    
   }, []); 
-
+  //console.log(error)
   return (
     <main>
       <MainContainer>
@@ -106,6 +109,11 @@ const Home = () => {
             ))}
           </MainGrid>)
       }
+      {error === false && (
+        <ContainerSvg>
+         <Error404 />
+        </ContainerSvg>
+      )}
     </main>
   )
 }

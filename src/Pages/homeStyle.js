@@ -140,3 +140,23 @@ export const MainGrid = styled.section`
     grid-template-columns: 300px;
   }
 `;
+
+export const ContainerSvg = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  #svgError{
+    width: 60%;
+    position: absolute;
+    top: -120px;
+
+    @media screen and (max-width: 768px){
+      width: 100%;
+      top: -80px;
+    }
+  } 
+`
