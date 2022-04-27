@@ -26,6 +26,7 @@ const Home = () => {
   const filterRegion = React.useCallback((region) => {
     const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
     setUrl(urlFilterRegion);
+    setRegion(region);
   }, []);
 
   return (
@@ -56,10 +57,7 @@ const Home = () => {
               name='region' 
               id='region'
               value={region}
-              onChange={({target}) => { 
-                filterRegion(target.value); 
-                setRegion(target.value);
-              }}
+              onChange={({target}) => filterRegion(target.value)}
             >
               <option value="" disabled>Filter by Region</option>
               <option value="africa">Africa</option>
@@ -72,25 +70,27 @@ const Home = () => {
         </Form>
       </MainContainer>
 
-      {loading && <Loading />}
-      <MainGrid theme={theme}>
-        {data.length > 0 && data.map(({flags, name, population, region, capital}, index) => (
-          <Link to={`/detail/${name.common}`} key={index}>
-            <div>
-              <img
-                src={flags.png}
-                alt={name.common} 
-              />
-            </div>
-            <div>
-              <h2>{name.common}</h2>
-              <p>Population: <span>{population}</span></p>
-              <p>Region: <span>{region}</span></p>
-              <p>Capital: <span>{capital}</span></p>
-            </div>
-          </Link>
-        ))}
-      </MainGrid>
+      {loading 
+        ? <Loading /> 
+        : (<MainGrid theme={theme}>
+            {data.length > 0 && data.map(({flags, name, population, region, capital}, index) => (
+              <Link to={`/detail/${name.common}`} key={index}>
+                <div>
+                  <img
+                    src={flags.png}
+                    alt={name.common} 
+                  />
+                </div>
+                <div>
+                  <h2>{name.common}</h2>
+                  <p>Population: <span>{population}</span></p>
+                  <p>Region: <span>{region}</span></p>
+                  <p>Capital: <span>{capital}</span></p>
+                </div>
+              </Link>
+            ))}
+          </MainGrid>)
+      }
     </main>
   )
 }

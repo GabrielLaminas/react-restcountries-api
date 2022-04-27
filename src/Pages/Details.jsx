@@ -35,7 +35,7 @@ const Details = () => {
   }, [data]);
   
   if(loading) return <Loading />
-  
+
   return (
     <SectionContainer theme={theme}>
       <Link to="/" className='back_tohome'>
@@ -109,7 +109,7 @@ const Details = () => {
                       {name.common + " "}
                     </Link>
                   ))
-                : <span>Does not have</span>
+                : <span> Does not have</span>
               }
             </div>
           </div>
@@ -119,4 +119,4 @@ const Details = () => {
   )
 }
 
-export default Details;
+export default React.memo(Details);
