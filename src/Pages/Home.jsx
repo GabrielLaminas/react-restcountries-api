@@ -29,6 +29,21 @@ const Home = () => {
     setRegion(region);
   }, []);
 
+  const searchCountry = React.useCallback((country) => {
+    const urlSearchCountry = `https://restcountries.com/v3.1/name/${country}`;
+
+    if(country){
+      setUrl(urlSearchCountry);
+      setSearch(country);
+      setRegion('');
+    } 
+    else{
+      setUrl(urlAllCountries);
+      setSearch('');
+      setRegion('');
+    }    
+  }, []); 
+
   return (
     <main>
       <MainContainer>
@@ -41,7 +56,7 @@ const Home = () => {
               type="search"
               id='search'
               value={search}
-              onChange={({target}) => setSearch(target.value)}
+              onChange={({target}) => searchCountry(target.value)}
               placeholder='Search for a country...'
             />
           </FormLabel>
