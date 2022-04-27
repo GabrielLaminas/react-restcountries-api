@@ -15,8 +15,18 @@ import {
 
 const Home = () => {
   const { theme } = React.useContext(ThemeContext);
+  const [search, setSearch] = React.useState('');
   const [region, setRegion] = React.useState('');
-  const { data, loading } = useFetch('https://restcountries.com/v3.1/all');
+  
+  const urlAllCountries = 'https://restcountries.com/v3.1/all';
+  const [url, setUrl] = React.useState(urlAllCountries);
+
+  const { data, loading } = useFetch(url);
+
+  const filterRegion = React.useCallback((region) => {
+    const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
+    setUrl(urlFilterRegion);
+  }, []);
 
   return (
     <main>
@@ -29,6 +39,8 @@ const Home = () => {
             <input 
               type="search"
               id='search'
+              value={search}
+              onChange={({target}) => setSearch(target.value)}
               placeholder='Search for a country...'
             />
           </FormLabel>
@@ -41,10 +53,13 @@ const Home = () => {
             style={{padding: '0'}}
           >
             <select 
-              value={region} 
               name='region' 
               id='region'
-              onChange={({target}) => setRegion(target.value)}
+              value={region}
+              onChange={({target}) => { 
+                filterRegion(target.value); 
+                setRegion(target.value);
+              }}
             >
               <option value="" disabled>Filter by Region</option>
               <option value="africa">Africa</option>
