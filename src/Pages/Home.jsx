@@ -24,7 +24,7 @@ const Home = () => {
   const urlAllCountries = 'https://restcountries.com/v3.1/all';
   const [url, setUrl] = React.useState(urlAllCountries);
 
-  const { data, loading, error } = useFetch(url);
+  const { data, loading } = useFetch(url);
 
   const filterRegion = React.useCallback((region) => {
     const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
@@ -46,7 +46,7 @@ const Home = () => {
       setRegion('');
     }    
   }, []); 
-  //console.log(error)
+
   return (
     <main>
       <MainContainer>
@@ -109,7 +109,7 @@ const Home = () => {
             ))}
           </MainGrid>)
       }
-      {error === false && (
+      {data.status === 404 && (
         <ContainerSvg>
          <Error404 />
         </ContainerSvg>
