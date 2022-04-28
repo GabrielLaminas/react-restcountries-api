@@ -76,7 +76,7 @@ export const FormLabel = styled.label`
 export const MainGrid = styled.section`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 20px;
+  padding: 20px;
   display: grid;
   gap: 64px;
   grid-template-columns: repeat(
