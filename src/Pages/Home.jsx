@@ -32,6 +32,7 @@ const Home = () => {
     if(debouncedSearch){
       const urlSearchCountry = `https://restcountries.com/v3.1/name/${debouncedSearch}`;
       setUrl(urlSearchCountry);
+      setRegion('');
     }
     else{
       setUrl(urlAllCountries);
