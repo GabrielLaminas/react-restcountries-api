@@ -1,10 +1,10 @@
-import React from 'react';
+import {useEffect, useState} from 'react';
 
 const useFetch = (url) => {
-  const [data, setData] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchData(urls){
       try{
         setLoading(true);

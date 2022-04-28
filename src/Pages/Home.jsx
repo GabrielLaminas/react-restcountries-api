@@ -4,8 +4,9 @@ import { ThemeContext } from '../Context/ThemeContext';
 import 'boxicons';
 
 import useFetch from '../Hook/useFetch';
-import Loading from '../Helpers/Loading';
+import useDebounce from '../Hook/useDebounce';
 
+import Loading from '../Helpers/Loading';
 import Error404 from '../Assets/404Error.svg?component';
 
 import { 
@@ -18,34 +19,30 @@ import {
 
 const Home = () => {
   const { theme } = React.useContext(ThemeContext);
-  const [search, setSearch] = React.useState('');
   const [region, setRegion] = React.useState('');
-  
+  const [search, setSearch] = React.useState('');
+  const debouncedSearch = useDebounce(search, 400);
+
   const urlAllCountries = 'https://restcountries.com/v3.1/all';
   const [url, setUrl] = React.useState(urlAllCountries);
 
   const { data, loading } = useFetch(url);
+
+  React.useEffect(() => {
+    if(debouncedSearch){
+      const urlSearchCountry = `https://restcountries.com/v3.1/name/${debouncedSearch}`;
+      setUrl(urlSearchCountry);
+    }
+    else{
+      setUrl(urlAllCountries);
+    }
+  }, [debouncedSearch]);
 
   const filterRegion = React.useCallback((region) => {
     const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
     setUrl(urlFilterRegion);
     setRegion(region);
   }, []);
-
-  const searchCountry = React.useCallback((country) => {
-    const urlSearchCountry = `https://restcountries.com/v3.1/name/${country}`;
-
-    if(country){
-      setUrl(urlSearchCountry);
-      setSearch(country);
-      setRegion('');
-    } 
-    else{
-      setUrl(urlAllCountries);
-      setSearch('');
-      setRegion('');
-    }    
-  }, []); 
 
   return (
     <main>
@@ -59,7 +56,7 @@ const Home = () => {
               type="search"
               id='search'
               value={search}
-              onChange={({target}) => searchCountry(target.value)}
+              onChange={({target}) => setSearch(target.value)}
               placeholder='Search for a country...'
             />
           </FormLabel>
@@ -109,7 +106,8 @@ const Home = () => {
             ))}
           </MainGrid>)
       }
-      {data.status === 404 && (
+
+      {(data.status === 404 && loading === false) && (
         <ContainerSvg>
          <Error404 />
         </ContainerSvg>
