@@ -64,13 +64,13 @@ const Details = () => {
               <p>Subregion: 
                 {detail.subregion
                   ? <span> {detail.subregion}</span>
-                  : <span> Does not have</span>
+                  : <span> Do not have</span>
                 }
               </p>
               <p>Capital: 
                 {detail.capital 
                   ? <span> {detail.capital[0]}</span>
-                  : <span> Does not have</span>
+                  : <span> Do not have</span>
                 }
               </p>
             </div>
@@ -85,7 +85,7 @@ const Details = () => {
                       {name}
                     </span>
                   ))
-                ) : <span>Does not have</span>}
+                ) : <span>Do not have</span>}
               </p>
               <p>Languages: {" "}
                 {detail.languages ? (
@@ -95,7 +95,7 @@ const Details = () => {
                       {lan}
                     </span>
                   ))
-                ) : <span>Does not have</span>}
+                ) : <span>Do not have</span>}
               </p>
             </div>
 
@@ -111,7 +111,7 @@ const Details = () => {
                       {name.common + " "}
                     </Link>
                   ))
-                : <span> Does not have</span>
+                : <span> Do not have</span>
               }
             </div>
           </div>

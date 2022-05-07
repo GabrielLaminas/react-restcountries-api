@@ -93,7 +93,7 @@ const Home = () => {
               <Link to={`/detail/${name.common}`} key={index}>
                 <div>
                   <img
-                    src={flags.png}
+                    src={flags.svg}
                     alt={name.common} 
                   />
                 </div>
@@ -101,7 +101,7 @@ const Home = () => {
                   <h2>{name.common}</h2>
                   <p>Population: <span>{population}</span></p>
                   <p>Region: <span>{region}</span></p>
-                  <p>Capital: <span>{capital}</span></p>
+                  <p>Capital: <span>{capital ? capital : 'do not have'}</span></p>
                 </div>
               </Link>
             ))}

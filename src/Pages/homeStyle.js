@@ -78,7 +78,7 @@ export const MainGrid = styled.section`
   margin: 0 auto;
   padding: 20px;
   display: grid;
-  gap: 64px;
+  gap: 48px;
   grid-template-columns: repeat(
     auto-fit,
     minmax(200px, auto) 
@@ -102,7 +102,7 @@ export const MainGrid = styled.section`
       overflow: hidden;
       
       img{
-        width: 100%;
+        min-width: 100%;
         height: 100%;
         object-fit: cover;
       }
