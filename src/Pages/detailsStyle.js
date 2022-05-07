@@ -58,6 +58,13 @@ export const ArticleGrid = styled.article`
       font-size: 0.875rem;
     }
     
+    .grid_gridInfoRight{
+      .languages + .languages::before{
+        content: ', ';
+        display: inline;
+      }
+    }
+
     .grid_gridInfoFooter{
       grid-column: span 2;
 

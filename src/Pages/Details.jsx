@@ -24,8 +24,8 @@ const Details = () => {
 
     if(borders[0] !== undefined){
       function getBorder(border){
-        border.map(e => {
-          fetch(`https://restcountries.com/v3.1/alpha?codes=${e}`)
+        border.map(code => {
+          fetch(`https://restcountries.com/v3.1/alpha?codes=${code}`)
           .then(response => response.json())
           .then(json => setBorderCountry(json))
         });
@@ -81,7 +81,7 @@ const Details = () => {
                 {detail.currencies ? (
                   Object.values(detail.currencies)
                   .map(({name}) => (
-                    <span key={name}>
+                    <span key={name} className="languages">
                       {name}
                     </span>
                   ))
@@ -91,7 +91,9 @@ const Details = () => {
                 {detail.languages ? (
                   Object.values(detail.languages)
                   .map((lan, i) => (
-                  <span key={i}>{lan}</span>
+                    <span key={i} className="languages">
+                      {lan}
+                    </span>
                   ))
                 ) : <span>Does not have</span>}
               </p>
