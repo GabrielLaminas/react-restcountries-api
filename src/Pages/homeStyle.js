@@ -79,10 +79,7 @@ export const MainGrid = styled.section`
   padding: 20px;
   display: grid;
   gap: 48px;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, auto) 
-  );
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   
   & > * {
@@ -133,6 +130,14 @@ export const MainGrid = styled.section`
         transform: scale(1.11, 1.11);
       }
     }
+  }
+
+  @media screen and (max-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media screen and (max-width: 560px) {
