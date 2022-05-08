@@ -55,6 +55,8 @@ export const ArticleGrid = styled.article`
 
     span{
       font-weight: 300;
+      opacity: 0.98;
+      letter-spacing: 0.2px;
       font-size: 0.875rem;
     }
     
