@@ -42,7 +42,7 @@ export const ArticleGrid = styled.article`
   .grid_gridInfo{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px 40px;
+    gap: 25px 40px;
 
     h2{
       grid-column: span 2;
@@ -101,10 +101,14 @@ export const ArticleGrid = styled.article`
     }
   }
 
+  @media screen and (max-width: 960px) {
+    gap: 40px;
+  }
+
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     justify-content: center;
-
+    
     .grid_containerImage{
       max-width: 600px;
       margin: 0 auto;
@@ -112,8 +116,6 @@ export const ArticleGrid = styled.article`
   }
 
   @media screen and (max-width: 560px) {
-    gap: 40px;
-
     .grid_containerImage{
       width: 100%;
     }
