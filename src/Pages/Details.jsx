@@ -59,7 +59,7 @@ const Details = () => {
 
             <div className='grid_gridInfoLeft'>
               <p>Official: <span>{detail.name.official}</span></p>
-              <p>Population: <span>{detail.population}</span></p>
+              <p>Population: <span>{new Intl.NumberFormat('en-US').format(detail.population)}</span></p>
               <p>Region: <span>{detail.region}</span></p>
               <p>Subregion: 
                 {detail.subregion

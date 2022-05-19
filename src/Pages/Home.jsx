@@ -99,7 +99,7 @@ const Home = () => {
                 </div>
                 <div>
                   <h2>{name.common}</h2>
-                  <p>Population: <span>{population}</span></p>
+                  <p>Population: <span>{new Intl.NumberFormat('en-US').format(population)}</span></p>
                   <p>Region: <span>{region}</span></p>
                   <p>Capital: <span>{capital ? capital : 'do not have'}</span></p>
                 </div>
