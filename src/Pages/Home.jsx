@@ -94,7 +94,8 @@ const Home = () => {
                 <div>
                   <img
                     src={flags.svg}
-                    alt={name.common} 
+                    alt={name.common}
+                    loading="lazy" 
                   />
                 </div>
                 <div>

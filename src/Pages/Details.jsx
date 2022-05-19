@@ -51,6 +51,7 @@ const Details = () => {
             <img 
               src={detail.flags.svg}
               alt={`flag of ${detail.name.common}`}
+              loading="lazy"
             />
           </div>
           
