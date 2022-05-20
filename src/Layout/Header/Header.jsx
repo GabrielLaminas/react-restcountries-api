@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext } from '../Context/ThemeContext';
+import { ThemeContext } from '../../Context/ThemeContext';
 
 import { Headerr, HeaderContainer } from './headerStyle';
 import 'boxicons';

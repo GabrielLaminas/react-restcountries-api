@@ -5,7 +5,7 @@ import { Theme } from './Context/ThemeContext';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Home from './Pages/Home';
-import Header from './Layout/Header';
+import Header from './Layout/Header/Header';
 import Details from './Pages/Details';
 
 const App = () => {
