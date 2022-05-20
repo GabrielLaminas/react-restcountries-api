@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { ThemeContext } from '../Context/ThemeContext';
+import { ThemeContext } from '../../Context/ThemeContext';
 
-import useFetch from '../Hook/useFetch';
+import useFetch from '../../Hook/useFetch';
 import 'boxicons';
-import Loading from '../Helpers/Loading';
+import Loading from '../../Helpers/Loading';
 
 import {
   SectionContainer,

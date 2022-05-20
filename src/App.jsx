@@ -4,9 +4,9 @@ import GlobalStyle from './GlobalStyle';
 import { Theme } from './Context/ThemeContext';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import Header from './Layout/Header/Header';
-import Details from './Pages/Details';
+import Details from './Pages/Details/Details';
 
 const App = () => {
   return (

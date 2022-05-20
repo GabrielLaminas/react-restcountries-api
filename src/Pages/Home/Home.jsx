@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../Context/ThemeContext';
+import { ThemeContext } from '../../Context/ThemeContext';
 import 'boxicons';
 
-import useFetch from '../Hook/useFetch';
-import useDebounce from '../Hook/useDebounce';
+import useFetch from '../../Hook/useFetch';
+import useDebounce from '../../Hook/useDebounce';
 
-import Loading from '../Helpers/Loading';
-import Error404 from '../Assets/404Error.svg?component';
+import Loading from '../../Helpers/Loading';
+import Error404 from '../../Assets/404Error.svg?component';
 
 import { 
   MainContainer, 
