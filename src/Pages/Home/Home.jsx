@@ -40,10 +40,18 @@ const Home = () => {
   }, [debouncedSearch]);
 
   const filterRegion = React.useCallback((region) => {
-    const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
-    setUrl(urlFilterRegion);
-    setRegion(region);
-  }, []);
+    if(region){
+      const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
+      setUrl(urlFilterRegion);
+      setRegion(region);
+    } 
+    else{
+      setUrl(urlAllCountries);
+      setRegion('');
+    }
+  }, [region]);
+
+  console.log(region)
 
   return (
     <main>
@@ -75,7 +83,7 @@ const Home = () => {
               value={region}
               onChange={({target}) => filterRegion(target.value)}
             >
-              <option value="" disabled>Filter by Region</option>
+              <option value="">Filter by Region</option>
               <option value="africa">Africa</option>
               <option value="america">America</option>
               <option value="asia">Asia</option>
