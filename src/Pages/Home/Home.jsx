@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../Context/ThemeContext';
 import 'boxicons';
 
@@ -13,9 +12,9 @@ import {
   MainContainer, 
   Form,
   FormLabel,
-  MainGrid, 
   ContainerSvg 
 } from './homeStyle';
+
 import CountriesList from '../../Layout/CountriesList/CountriesList';
 
 const Home = () => {
@@ -102,24 +101,3 @@ const Home = () => {
 }
 
 export default Home;
-
-
-/**(<MainGrid theme={theme}>
-            {data.length > 0 && data.map(({flags, name, population, region, capital}, index) => (
-              <Link to={`/detail/${name.common}`} key={index}>
-                <div>
-                  <img
-                    src={flags.svg}
-                    alt={name.common}
-                    loading="lazy" 
-                  />
-                </div>
-                <div>
-                  <h2>{name.common}</h2>
-                  <p>Population: <span>{new Intl.NumberFormat('en-US').format(population)}</span></p>
-                  <p>Region: <span>{region}</span></p>
-                  <p>Capital: <span>{capital ? capital : 'do not have'}</span></p>
-                </div>
-              </Link>
-            ))}
-          </MainGrid>) */
