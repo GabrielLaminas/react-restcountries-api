@@ -16,6 +16,7 @@ import {
   MainGrid, 
   ContainerSvg 
 } from './homeStyle';
+import CountriesList from '../../Layout/CountriesList/CountriesList';
 
 const Home = () => {
   const { theme } = React.useContext(ThemeContext);
@@ -88,7 +89,22 @@ const Home = () => {
 
       {loading 
         ? <Loading /> 
-        : (<MainGrid theme={theme}>
+        : <CountriesList theme={theme} data={data} />
+      }
+
+      {(data.status === 404 && loading === false) && (
+        <ContainerSvg>
+         <Error404 />
+        </ContainerSvg>
+      )}
+    </main>
+  )
+}
+
+export default Home;
+
+
+/**(<MainGrid theme={theme}>
             {data.length > 0 && data.map(({flags, name, population, region, capital}, index) => (
               <Link to={`/detail/${name.common}`} key={index}>
                 <div>
@@ -106,16 +122,4 @@ const Home = () => {
                 </div>
               </Link>
             ))}
-          </MainGrid>)
-      }
-
-      {(data.status === 404 && loading === false) && (
-        <ContainerSvg>
-         <Error404 />
-        </ContainerSvg>
-      )}
-    </main>
-  )
-}
-
-export default Home;
+          </MainGrid>) */
