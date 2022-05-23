@@ -39,7 +39,7 @@ const Home = () => {
     }
   }, [debouncedSearch]);
 
-  const filterRegion = React.useCallback((region) => {
+  function filterRegion(region){
     if(region){
       const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
       setUrl(urlFilterRegion);
@@ -49,10 +49,8 @@ const Home = () => {
       setUrl(urlAllCountries);
       setRegion('');
     }
-  }, [region]);
-
-  console.log(region)
-
+  }
+  
   return (
     <main>
       <MainContainer>
