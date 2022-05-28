@@ -3,7 +3,6 @@ import { ThemeContext } from '../../Context/ThemeContext';
 import 'boxicons';
 
 import useFetch from '../../Hook/useFetch';
-
 import Loading from '../../Helpers/Loading';
 import Error404 from '../../Assets/404Error.svg?component';
 
@@ -18,45 +17,42 @@ import CountriesList from '../../Layout/CountriesList/CountriesList';
 
 const Home = () => {
   const { theme } = React.useContext(ThemeContext);
+  const [url, setUrl] = React.useState(() => {
+    const getStore = localStorage.getItem('region');
+    return getStore 
+      ? `https://restcountries.com/v3.1/region/${getStore}` 
+      : 'https://restcountries.com/v3.1/all'
+  });
+
   const [region, setRegion] = React.useState(() => {
     const localRegion = localStorage.getItem('region');
-    return localRegion ? localRegion : localStorage.setItem('region', '')
+    return localRegion ? localRegion : ''
   });
-  const [search, setSearch] = React.useState('');
 
-  const [url, setUrl] = React.useState('https://restcountries.com/v3.1/all');
+  const [search, setSearch] = React.useState('');
   const { data, loading } = useFetch(url);
 
   React.useEffect(() => {
     if(search){
+      console.log('existe algo no search')
       const urlSearchCountry = `https://restcountries.com/v3.1/name/${search}`;
       setRegion('');
       setUrl(urlSearchCountry);
     }
   }, [search]);
 
-  React.useEffect(() => {
-    const localRegion = localStorage.getItem('region');
-    
-    if(localRegion){
-      setSearch('');
-      setRegion(localRegion);
-      setUrl(`https://restcountries.com/v3.1/region/${localRegion}`);
-    }
-
-  }, []);
-
   function filterRegion(region){
     if(region){
       const urlFilterRegion = `https://restcountries.com/v3.1/region/${region}`;
-      setUrl(urlFilterRegion);
-      setRegion(region);
-      localStorage.setItem('region', region)
+
+      setRegion((prevRegion) => prevRegion = region);
+      setUrl((prevUrl) => prevUrl = urlFilterRegion);
+      localStorage.setItem('region', region);
     } 
     else{
       setRegion('');
-      localStorage.removeItem('region')
       setUrl('https://restcountries.com/v3.1/all');
+      localStorage.removeItem('region');
     }
   }
 
