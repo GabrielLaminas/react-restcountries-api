@@ -34,7 +34,6 @@ const Home = () => {
 
   React.useEffect(() => {
     if(search){
-      console.log('existe algo no search')
       const urlSearchCountry = `https://restcountries.com/v3.1/name/${search}`;
       setRegion('');
       setUrl(urlSearchCountry);
