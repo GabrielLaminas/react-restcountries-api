@@ -33,8 +33,12 @@ const ButtonContainer = styled.div`
 const ButtonToTop = () => {
   const { theme } = React.useContext(ThemeContext);
 
+  function handleButton(){
+    window.scrollTo(500, 0);
+  }
+
   return (
-    <ButtonContainer theme={theme}>
+    <ButtonContainer theme={theme} onClick={handleButton}>
       <box-icon 
         type='solid' 
         name='chevron-up'

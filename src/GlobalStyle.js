@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 10px;
   }
 
+  html{
+    scroll-behavior: smooth;
+  }
+
   body{
     font-family: 'Nunito Sans', sans-serif;
   }
