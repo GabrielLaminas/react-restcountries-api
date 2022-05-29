@@ -14,6 +14,7 @@ import {
 } from './homeStyle';
 
 import CountriesList from '../../Layout/CountriesList/CountriesList';
+import ButtonToTop from '../../Helpers/ButtonToTop';
 
 const Home = () => {
   const { theme } = React.useContext(ThemeContext);
@@ -106,6 +107,8 @@ const Home = () => {
          <Error404 />
         </ContainerSvg>
       )}
+
+      <ButtonToTop />
     </main>
   )
 }
