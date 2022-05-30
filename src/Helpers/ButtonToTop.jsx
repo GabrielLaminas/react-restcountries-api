@@ -34,13 +34,13 @@ const ButtonContainer = styled.div`
 const ButtonToTop = () => {
   const { theme } = React.useContext(ThemeContext);
   const buttonRef = React.useRef(null);
-  
+
   React.useEffect(() => {
     function showButton(){
       if(window.scrollY > 400){
         buttonRef.current.style.display = 'initial';
         buttonRef.current.style.opacity = 1;
-      }
+      } 
       else{
         buttonRef.current.style.display = 'none';
         buttonRef.current.style.opacity = 0;
@@ -52,7 +52,7 @@ const ButtonToTop = () => {
     return () => window.removeEventListener('scroll', showButton);
   }, [buttonRef])
 
-  function handleButton(){
+  function handleButton(e){
     window.scrollTo(500, 0);
   }
 
