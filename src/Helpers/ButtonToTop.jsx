@@ -13,6 +13,7 @@ const ButtonContainer = styled.div`
   background-color: ${({theme}) => theme.backgroundElements};
   box-shadow: 0px 2px 10px rgba(0, 0, 0, .2);
   transition: all .2s;
+  opacity: 0;
   cursor: pointer;
 
   &:hover{
@@ -32,13 +33,31 @@ const ButtonContainer = styled.div`
 
 const ButtonToTop = () => {
   const { theme } = React.useContext(ThemeContext);
+  const buttonRef = React.useRef(null);
+  
+  React.useEffect(() => {
+    function showButton(){
+      if(window.scrollY > 400){
+        buttonRef.current.style.display = 'initial';
+        buttonRef.current.style.opacity = 1;
+      }
+      else{
+        buttonRef.current.style.display = 'none';
+        buttonRef.current.style.opacity = 0;
+      }
+    }
+
+    window.addEventListener('scroll', showButton);
+    
+    return () => window.removeEventListener('scroll', showButton);
+  }, [buttonRef])
 
   function handleButton(){
     window.scrollTo(500, 0);
   }
 
   return (
-    <ButtonContainer theme={theme} onClick={handleButton}>
+    <ButtonContainer theme={theme} onClick={handleButton} ref={buttonRef}>
       <box-icon 
         type='solid' 
         name='chevron-up'
