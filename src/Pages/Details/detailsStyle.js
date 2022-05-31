@@ -107,11 +107,10 @@ export const ArticleGrid = styled.article`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    justify-content: center;
-    
+    justify-content: start;
+
     .grid_containerImage{
       max-width: 600px;
-      margin: 0 auto;
     }
   }
 

@@ -7,6 +7,7 @@ const ButtonContainer = styled.div`
   width: 54px;
   height: 54px;
   position: fixed;
+  display: none;
   top: 572px;
   right: 30px;
   border-radius: 50%;
@@ -52,7 +53,7 @@ const ButtonToTop = () => {
     return () => window.removeEventListener('scroll', showButton);
   }, [buttonRef])
 
-  function handleButton(e){
+  function handleButton(){
     window.scrollTo(500, 0);
   }
 
@@ -66,4 +67,4 @@ const ButtonToTop = () => {
   )
 }
 
-export default ButtonToTop;
+export default React.memo(ButtonToTop);
