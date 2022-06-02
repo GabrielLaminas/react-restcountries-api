@@ -16,7 +16,7 @@ export const SectionContainer = styled.section`
     padding: 6px 28px;
     display: inline-block;
     border-radius: 4px;
-    box-shadow: 0px 2px 12px rgba(0, 0, 0, .12);
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, .15);
     
     div{
       display: flex;
@@ -55,7 +55,6 @@ export const ArticleGrid = styled.article`
 
     span{
       font-weight: 300;
-      opacity: 0.98;
       letter-spacing: 0.2px;
       font-size: 0.875rem;
     }
@@ -87,7 +86,7 @@ export const ArticleGrid = styled.article`
         font-size: 0.875rem;
         font-weight: 300;
         border-radius: 4px;
-        box-shadow: 0px 2px 12px rgba(0, 0, 0, .12);
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, .2);
       }
     }
 

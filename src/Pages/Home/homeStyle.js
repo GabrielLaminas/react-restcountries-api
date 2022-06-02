@@ -20,7 +20,7 @@ export const MainContainer = styled.section`
 `;
 
 export const Form = styled.form`
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, .07);
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, .13);
 `;
 
 export const FormLabel = styled.label`
